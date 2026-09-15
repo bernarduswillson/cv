@@ -20,7 +20,9 @@
 \usepackage[english]{babel}
 \usepackage{tabularx}
 \usepackage{setspace}
-\input{glyphtounicode}
+\ifdefined\pdfglyphtounicode
+  \input{glyphtounicode}
+\fi
 
 \pagestyle{fancy}
 \fancyhf{}
@@ -47,7 +49,9 @@
 }{}{0em}{}[\color{black}\titlerule\vspace{-6pt}]
 
 % Ensure that generate pdf is machine readable/ATS parsable
-\pdfgentounicode=1
+\ifdefined\pdfgentounicode
+  \pdfgentounicode=1
+\fi
 
 %-------------------------%
 % Custom commands
