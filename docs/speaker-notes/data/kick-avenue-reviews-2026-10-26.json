@@ -1,0 +1,335 @@
+{
+  "analysis_date": "2026-10-26",
+  "timezone": "Asia/Jakarta",
+  "design": "Exploratory observational comparison, not a randomized experiment",
+  "cohort_days": [
+    "2026-09-07",
+    "2026-09-14",
+    "2026-09-21",
+    "2026-09-28",
+    "2026-10-05",
+    "2026-10-12"
+  ],
+  "outcome": "First recorded paid purchase from one minute after the classification boundary through seven days after it",
+  "count_unit": "Matched identifiable account",
+  "windows": {
+    "15min": {
+      "totals": {
+        "review_accounts": 284,
+        "review_first_buyers": 23,
+        "other_accounts": 8330,
+        "other_first_buyers": 368
+      },
+      "strata": [
+        {
+          "date": "2026-09-07",
+          "platform": "Android",
+          "review_accounts": 18,
+          "review_first_buyers": 0,
+          "other_accounts": 722,
+          "other_first_buyers": 26
+        },
+        {
+          "date": "2026-09-07",
+          "platform": "iOS",
+          "review_accounts": 28,
+          "review_first_buyers": 2,
+          "other_accounts": 1084,
+          "other_first_buyers": 62
+        },
+        {
+          "date": "2026-09-14",
+          "platform": "Android",
+          "review_accounts": 18,
+          "review_first_buyers": 0,
+          "other_accounts": 537,
+          "other_first_buyers": 19
+        },
+        {
+          "date": "2026-09-14",
+          "platform": "iOS",
+          "review_accounts": 25,
+          "review_first_buyers": 2,
+          "other_accounts": 820,
+          "other_first_buyers": 26
+        },
+        {
+          "date": "2026-09-21",
+          "platform": "Android",
+          "review_accounts": 22,
+          "review_first_buyers": 2,
+          "other_accounts": 541,
+          "other_first_buyers": 15
+        },
+        {
+          "date": "2026-09-21",
+          "platform": "iOS",
+          "review_accounts": 25,
+          "review_first_buyers": 1,
+          "other_accounts": 771,
+          "other_first_buyers": 42
+        },
+        {
+          "date": "2026-09-28",
+          "platform": "Android",
+          "review_accounts": 14,
+          "review_first_buyers": 0,
+          "other_accounts": 501,
+          "other_first_buyers": 22
+        },
+        {
+          "date": "2026-09-28",
+          "platform": "iOS",
+          "review_accounts": 35,
+          "review_first_buyers": 5,
+          "other_accounts": 752,
+          "other_first_buyers": 47
+        },
+        {
+          "date": "2026-10-05",
+          "platform": "Android",
+          "review_accounts": 21,
+          "review_first_buyers": 2,
+          "other_accounts": 442,
+          "other_first_buyers": 24
+        },
+        {
+          "date": "2026-10-05",
+          "platform": "iOS",
+          "review_accounts": 20,
+          "review_first_buyers": 2,
+          "other_accounts": 701,
+          "other_first_buyers": 44
+        },
+        {
+          "date": "2026-10-12",
+          "platform": "Android",
+          "review_accounts": 20,
+          "review_first_buyers": 1,
+          "other_accounts": 575,
+          "other_first_buyers": 9
+        },
+        {
+          "date": "2026-10-12",
+          "platform": "iOS",
+          "review_accounts": 38,
+          "review_first_buyers": 6,
+          "other_accounts": 884,
+          "other_first_buyers": 32
+        }
+      ]
+    },
+    "30min": {
+      "totals": {
+        "review_accounts": 303,
+        "review_first_buyers": 25,
+        "other_accounts": 8279,
+        "other_first_buyers": 339
+      },
+      "strata": [
+        {
+          "date": "2026-09-07",
+          "platform": "Android",
+          "review_accounts": 20,
+          "review_first_buyers": 0,
+          "other_accounts": 719,
+          "other_first_buyers": 25
+        },
+        {
+          "date": "2026-09-07",
+          "platform": "iOS",
+          "review_accounts": 29,
+          "review_first_buyers": 3,
+          "other_accounts": 1081,
+          "other_first_buyers": 59
+        },
+        {
+          "date": "2026-09-14",
+          "platform": "Android",
+          "review_accounts": 20,
+          "review_first_buyers": 0,
+          "other_accounts": 534,
+          "other_first_buyers": 18
+        },
+        {
+          "date": "2026-09-14",
+          "platform": "iOS",
+          "review_accounts": 26,
+          "review_first_buyers": 2,
+          "other_accounts": 815,
+          "other_first_buyers": 22
+        },
+        {
+          "date": "2026-09-21",
+          "platform": "Android",
+          "review_accounts": 25,
+          "review_first_buyers": 2,
+          "other_accounts": 537,
+          "other_first_buyers": 13
+        },
+        {
+          "date": "2026-09-21",
+          "platform": "iOS",
+          "review_accounts": 26,
+          "review_first_buyers": 2,
+          "other_accounts": 763,
+          "other_first_buyers": 37
+        },
+        {
+          "date": "2026-09-28",
+          "platform": "Android",
+          "review_accounts": 16,
+          "review_first_buyers": 0,
+          "other_accounts": 496,
+          "other_first_buyers": 20
+        },
+        {
+          "date": "2026-09-28",
+          "platform": "iOS",
+          "review_accounts": 36,
+          "review_first_buyers": 5,
+          "other_accounts": 749,
+          "other_first_buyers": 45
+        },
+        {
+          "date": "2026-10-05",
+          "platform": "Android",
+          "review_accounts": 23,
+          "review_first_buyers": 2,
+          "other_accounts": 436,
+          "other_first_buyers": 22
+        },
+        {
+          "date": "2026-10-05",
+          "platform": "iOS",
+          "review_accounts": 19,
+          "review_first_buyers": 1,
+          "other_accounts": 698,
+          "other_first_buyers": 41
+        },
+        {
+          "date": "2026-10-12",
+          "platform": "Android",
+          "review_accounts": 25,
+          "review_first_buyers": 2,
+          "other_accounts": 570,
+          "other_first_buyers": 8
+        },
+        {
+          "date": "2026-10-12",
+          "platform": "iOS",
+          "review_accounts": 38,
+          "review_first_buyers": 6,
+          "other_accounts": 881,
+          "other_first_buyers": 29
+        }
+      ]
+    },
+    "60min": {
+      "totals": {
+        "review_accounts": 305,
+        "review_first_buyers": 19,
+        "other_accounts": 8245,
+        "other_first_buyers": 315
+      },
+      "strata": [
+        {
+          "date": "2026-09-07",
+          "platform": "Android",
+          "review_accounts": 22,
+          "review_first_buyers": 0,
+          "other_accounts": 715,
+          "other_first_buyers": 24
+        },
+        {
+          "date": "2026-09-07",
+          "platform": "iOS",
+          "review_accounts": 27,
+          "review_first_buyers": 1,
+          "other_accounts": 1081,
+          "other_first_buyers": 59
+        },
+        {
+          "date": "2026-09-14",
+          "platform": "Android",
+          "review_accounts": 20,
+          "review_first_buyers": 0,
+          "other_accounts": 533,
+          "other_first_buyers": 17
+        },
+        {
+          "date": "2026-09-14",
+          "platform": "iOS",
+          "review_accounts": 26,
+          "review_first_buyers": 2,
+          "other_accounts": 811,
+          "other_first_buyers": 18
+        },
+        {
+          "date": "2026-09-21",
+          "platform": "Android",
+          "review_accounts": 25,
+          "review_first_buyers": 2,
+          "other_accounts": 535,
+          "other_first_buyers": 12
+        },
+        {
+          "date": "2026-09-21",
+          "platform": "iOS",
+          "review_accounts": 26,
+          "review_first_buyers": 2,
+          "other_accounts": 758,
+          "other_first_buyers": 33
+        },
+        {
+          "date": "2026-09-28",
+          "platform": "Android",
+          "review_accounts": 16,
+          "review_first_buyers": 0,
+          "other_accounts": 496,
+          "other_first_buyers": 20
+        },
+        {
+          "date": "2026-09-28",
+          "platform": "iOS",
+          "review_accounts": 37,
+          "review_first_buyers": 4,
+          "other_accounts": 744,
+          "other_first_buyers": 42
+        },
+        {
+          "date": "2026-10-05",
+          "platform": "Android",
+          "review_accounts": 22,
+          "review_first_buyers": 1,
+          "other_accounts": 434,
+          "other_first_buyers": 20
+        },
+        {
+          "date": "2026-10-05",
+          "platform": "iOS",
+          "review_accounts": 20,
+          "review_first_buyers": 1,
+          "other_accounts": 692,
+          "other_first_buyers": 36
+        },
+        {
+          "date": "2026-10-12",
+          "platform": "Android",
+          "review_accounts": 26,
+          "review_first_buyers": 1,
+          "other_accounts": 568,
+          "other_first_buyers": 7
+        },
+        {
+          "date": "2026-10-12",
+          "platform": "iOS",
+          "review_accounts": 38,
+          "review_first_buyers": 5,
+          "other_accounts": 878,
+          "other_first_buyers": 27
+        }
+      ]
+    }
+  }
+}
