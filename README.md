@@ -2,9 +2,11 @@
 
 [View the CV](CV_Bernardus%20Willson.pdf) · [LaTeX source](CV_Bernardus%20Willson.tex)
 
-## Interview speaker notes
+## Interview keynotes
 
-- [Kick Avenue: customer reviews and the 63% conversion comparison](docs/speaker-notes/kick-avenue-customer-reviews.md) - talking points, calculations, cohort definitions, and measurement limitations.
+One concise keynote per CV point.
+
+- [Kick Avenue - Point 1: Customer reviews](docs/speaker-notes/kick-avenue-customer-reviews.md)
 
 ## Build
 
