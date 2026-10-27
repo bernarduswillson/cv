@@ -1,0 +1,93 @@
+{
+  "extraction_date": "2026-10-27",
+  "timezone": "Asia/Jakarta",
+  "source": "Read-only production MariaDB aggregate queries, not GA4",
+  "period": {
+    "start_inclusive": "2026-10-21 00:00:00",
+    "end_exclusive": "2026-10-26 00:00:00"
+  },
+  "follow_up_hours": 24,
+  "cohort_users": 7801,
+  "returned_to_mobile_product_browsing_24h": 1984,
+  "observed_return_rate_percent": 25.4326,
+  "cv_rounded_percent": 25,
+  "daily_aggregates": [
+    {
+      "date_wib": "2026-10-21",
+      "cohort_users": 1445,
+      "returned_to_mobile_product_browsing_24h": 350
+    },
+    {
+      "date_wib": "2026-10-22",
+      "cohort_users": 1452,
+      "returned_to_mobile_product_browsing_24h": 337
+    },
+    {
+      "date_wib": "2026-10-23",
+      "cohort_users": 1540,
+      "returned_to_mobile_product_browsing_24h": 379
+    },
+    {
+      "date_wib": "2026-10-24",
+      "cohort_users": 1585,
+      "returned_to_mobile_product_browsing_24h": 432
+    },
+    {
+      "date_wib": "2026-10-25",
+      "cohort_users": 1779,
+      "returned_to_mobile_product_browsing_24h": 486
+    }
+  ],
+  "cohort_definition": "Retained browsing_reminders handoff_at within period and cooldown_until = handoff_at + 168 hours. Five recent complete daily cohorts within seven-day cooldown prevent accepted/uncertain handoff overwrites before snapshot. Explicitly rejected handoffs with released cooldown excluded.",
+  "return_definition": "At least one later product_variant_view for the same user, platform IOS or ANDROID, within 24 hours of handoff_at. Any product and any recorded product-view action qualify. Each user counts once.",
+  "aggregate_query": "SELECT COUNT(*) AS cohort_users, SUM(EXISTS(SELECT 1 FROM product_variant_view v WHERE v.user_id = r.user_id AND v.created_at > r.handoff_at AND v.created_at <= r.handoff_at + INTERVAL 24 HOUR AND v.platform IN ('IOS', 'ANDROID'))) AS returned_users FROM browsing_reminders r WHERE r.handoff_at >= '2026-10-21' AND r.handoff_at < '2026-10-26' AND r.cooldown_until = r.handoff_at + INTERVAL 168 HOUR",
+  "limitations": [
+    "handoff_at is committed before the FCM network request. Accepted and uncertain attempts are included. It does not prove device delivery, notification display, or a click.",
+    "Each user retains only the latest handoff. The recent complete daily cohorts were still within the seven-day cooldown at extraction. Older overwritten attempts cannot be reconstructed from this table, and rerunning the query later may produce different results.",
+    "No control group or causal uplift was measured. Product returns may be organic or associated with other campaigns. The 25% figure does not describe click-through, purchases, incremental reactivation, or all push-notification recipients.",
+    "GA4 notification events existed, but the inspected reports did not provide a usable browsing-reminder-specific label."
+  ],
+  "implementation_prs": [
+    {
+      "scope": "Duplicate replay prevention, franchise routing, notification preferences",
+      "url": "https://github.com/kickavenue/be-api-laravel/pull/586"
+    },
+    {
+      "scope": "Pending-push recovery and legacy-token handling",
+      "url": "https://github.com/kickavenue/be-api-laravel/pull/588"
+    },
+    {
+      "scope": "Day-3 review reminders",
+      "url": "https://github.com/kickavenue/be-api-laravel/pull/950"
+    },
+    {
+      "scope": "Last-chance review reminders",
+      "url": "https://github.com/kickavenue/be-api-laravel/pull/1014"
+    },
+    {
+      "scope": "Browsing reminders",
+      "url": "https://github.com/kickavenue/be-api-laravel/pull/970"
+    }
+  ],
+  "legacy_bug_evidence": {
+    "earliest_verified_code_snapshot": {
+      "date": "2025-11-07",
+      "commit": "850d96757",
+      "url": "https://github.com/kickavenue/be-api-laravel/commit/850d96757"
+    },
+    "duplicate_replay_fix": {
+      "merged_date_wib": "2026-07-20",
+      "commit": "13bb8c070",
+      "url": "https://github.com/kickavenue/be-api-laravel/pull/586",
+      "issue": "https://bintang5.atlassian.net/browse/KB-5249"
+    },
+    "interpretation": "The vulnerable replay pattern is present in the earliest inspected November 2025 snapshot and removed by the July 2026 fix, approximately eight months later. This establishes legacy code history, not the first production incident, uninterrupted incident frequency, or the deployment date. The CV does not claim a specific unresolved duration.",
+    "missed_delivery_causes": [
+      "Kard tokens sent with Kick credentials were rejected by FCM.",
+      "Marking a row COMPLETED before enqueueing could strand an unsent notification if the process failed between those steps.",
+      "The pending-push resend cron was blocked by a gate on a legacy queue table, addressed separately in PR #588."
+    ],
+    "recovery_fix_url": "https://github.com/kickavenue/be-api-laravel/pull/588",
+    "duration_caution": "Legacy queue rows dating to 2020 do not establish that the duplicate-send bug was occurring since 2020."
+  }
+}
