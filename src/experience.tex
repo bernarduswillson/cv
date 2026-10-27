@@ -7,7 +7,7 @@
       \resumeItemListStart
         \resumeItem{Owned end-to-end delivery of customer reviews, ratings, and photo uploads across backend, web, and mobile, with 13.5\% of tracked mobile review viewers without prior purchases making their first paid purchase within seven days.}
         \resumeItem{Maintained and extended OpenSearch-powered search across backend, web, and mobile, handling an estimated 350,000 daily search requests with a 127 ms median API response time in production samples.}
-        \resumeItem{Strengthened Midtrans payment integration by resolving checkout race conditions during concurrent payments and adding QRIS support for a more reliable checkout experience.}
+        \resumeItem{Hardened Midtrans checkout with transactional locking to prevent overselling and lost inventory updates, safely routing 48 stock-conflict payments to refunds in the first month after release.}
       \resumeItemListEnd
 
     \resumeSubheading
