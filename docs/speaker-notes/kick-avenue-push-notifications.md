@@ -1,4 +1,4 @@
-# Kick Avenue - Point 3: Push notifications and re-engagement
+# Kick Avenue - Point 4: Push notifications and re-engagement
 
 **Keynote:** I resolved legacy push bugs causing duplicate sends and missed deliveries by adding atomic replay claims, correcting franchise credentials, and restoring pending-push recovery. I also fixed ignored notification preferences and added review and browsing reminders. In a retrospective production-database analysis, 1,984 of 7,801 users in a browsing-reminder cohort returned to product browsing in the app within 24 hours of a recorded send attempt. The rounded observed return rate is 25% and applies only to browsing reminders.
 

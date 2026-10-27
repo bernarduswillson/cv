@@ -1,12 +1,7 @@
 %-------------------------%
 % Custom commands
 \newcommand{\resumeItem}[1]{
-  \item\small{
-    \begin{spacing}{0.9}
-      #1
-    \end{spacing}
-    \vspace{-3pt}
-  }
+  \item {\small\setstretch{0.82}#1\par}
 }
 
 \newcommand{\resumeSubheading}[4]{
@@ -38,7 +33,7 @@
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, itemsep=3pt, label={}]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[itemsep=1.5pt, parsep=0pt, topsep=1pt, partopsep=0pt]}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
 
 \definecolor{Black}{RGB}{0, 0, 0}

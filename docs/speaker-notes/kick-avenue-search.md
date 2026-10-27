@@ -1,4 +1,4 @@
-# Kick Avenue - Point 2: Search and product discovery
+# Kick Avenue - Point 3: Search and product discovery
 
 **Keynote:** I maintained and extended the existing OpenSearch-powered search across backend, web, and mobile. Volume is estimated at approximately 350,000 daily search requests using sampled search shares and Grafana traffic. The 127 ms median API response time was measured directly in the samples.
 
