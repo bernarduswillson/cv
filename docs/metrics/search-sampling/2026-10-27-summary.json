@@ -1,0 +1,98 @@
+{
+  "date": "2026-10-27",
+  "sources": [
+    {
+      "file": "2026-10-27-morning.json",
+      "sha256": "cae823a251509c06a6e1e722d2e0a7738f0c1ad55b257f8b914d027e8db5d6fd",
+      "session": "morning",
+      "start": "2026-10-27T08:55:00+07:00",
+      "end_exclusive": "2026-10-27T09:05:00+07:00",
+      "minutes": 10,
+      "requests": 2783,
+      "requests_per_minute": 278.3,
+      "http_200_requests": 2776,
+      "median_http_200_ms": 108.0,
+      "p95_http_200_ms": 387.0,
+      "p99_http_200_ms": 652.0,
+      "http_200_percent": 99.74847287100252
+    },
+    {
+      "file": "2026-10-27-noon.json",
+      "sha256": "6b7bf51aa573358b85774ddbdb7f65cc2b9143482674068df6dd3e05939f3ee1",
+      "session": "noon",
+      "start": "2026-10-27T12:22:00+07:00",
+      "end_exclusive": "2026-10-27T12:31:00+07:00",
+      "minutes": 9,
+      "requests": 2938,
+      "requests_per_minute": 326.44444444444446,
+      "http_200_requests": 2922,
+      "median_http_200_ms": 138.0,
+      "p95_http_200_ms": 421,
+      "p99_http_200_ms": 985,
+      "http_200_percent": 99.45541184479238
+    },
+    {
+      "file": "2026-10-27-afternoon.json",
+      "sha256": "0f45dc09d4d79c313311ccf3c6abc185f812c095979fa164d697fe5c4c7708e6",
+      "session": "afternoon",
+      "start": "2026-10-27T18:08:00+07:00",
+      "end_exclusive": "2026-10-27T18:18:00+07:00",
+      "minutes": 10,
+      "requests": 3477,
+      "requests_per_minute": 347.7,
+      "http_200_requests": 3460,
+      "median_http_200_ms": 139.0,
+      "p95_http_200_ms": 430,
+      "p99_http_200_ms": 1994,
+      "http_200_percent": 99.51107276387691
+    },
+    {
+      "file": "2026-10-27-night.json",
+      "sha256": "3a123991a7f84d9879c2737e4efbdcece6938fe69687eca67e9e71bafc032936",
+      "session": "night",
+      "start": "2026-10-27T21:21:30+07:00",
+      "end_exclusive": "2026-10-27T21:29:30+07:00",
+      "minutes": 8,
+      "requests": 2729,
+      "requests_per_minute": 341.125,
+      "http_200_requests": 2715,
+      "median_http_200_ms": 113,
+      "p95_http_200_ms": 396,
+      "p99_http_200_ms": 875,
+      "http_200_percent": 99.4869915720044
+    }
+  ],
+  "sampled_minutes": 37,
+  "requests": 11927,
+  "requests_per_minute": 322.35135135135135,
+  "status_counts": {
+    "200": 11873,
+    "499": 54
+  },
+  "http_200_count": 11873,
+  "http_200_percent": 99.54724574494844,
+  "http_200_latency": {
+    "mean_ms": 186.62654762907437,
+    "median_ms": 127,
+    "p95_ms": 417,
+    "p99_ms": 957,
+    "max_ms": 11010
+  },
+  "calculation": {
+    "rate": "Sum of observed request counts divided by sum of sampled minutes.",
+    "latency": "Pool exact per-millisecond HTTP 200 histograms from all four sessions, then compute median and nearest-rank p95/p99. Session medians and percentiles are not averaged."
+  },
+  "filters": {
+    "method": "GET",
+    "paths": [
+      "/search",
+      "/prod/search"
+    ],
+    "upstream": "Octane production API upstream (exclude frontend and other backends)"
+  },
+  "limitations": [
+    "Four short observation windows on one calendar day. These are observed rates during those windows, not a full-day traffic average or a capacity benchmark.",
+    "The snapshots establish observed usage and latency, not a causal performance improvement from a particular change.",
+    "Requests are not unique users. NGINX request_time is not full user-perceived latency."
+  ]
+}

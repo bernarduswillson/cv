@@ -1,0 +1,627 @@
+{
+  "period": {
+    "start_inclusive": "2026-09-27T00:00:00+07:00",
+    "end_exclusive": "2026-10-27T00:00:00+07:00",
+    "complete_days": 30
+  },
+  "observation": {
+    "date": "2026-10-27",
+    "windows": 4,
+    "minutes": 37,
+    "search_requests": 11927,
+    "observed_search_rpm": 322.35135135135135,
+    "median_http_200_latency_ms": 127
+  },
+  "source": {
+    "datasourceUid": "prometheus",
+    "metric": "caddy_http_requests_total",
+    "job": "monolith/be-api-laravel-octane",
+    "volume_query": "sum(increase(caddy_http_requests_total{job=\"monolith/be-api-laravel-octane\"}[24h]))",
+    "profile_query": "sum(rate(caddy_http_requests_total{job=\"monolith/be-api-laravel-octane\"}[15m]))",
+    "profile_step_seconds": 900,
+    "profile_intervals": 2880,
+    "volume_observations": 30
+  },
+  "anchors": [
+    {
+      "session": "morning",
+      "source_file": "2026-10-27-morning.json",
+      "source_sha256": "cae823a251509c06a6e1e722d2e0a7738f0c1ad55b257f8b914d027e8db5d6fd",
+      "sample_start": "2026-10-27T08:55:00+07:00",
+      "sample_end": "2026-10-27T09:05:00+07:00",
+      "midpoint_seconds_wib": 32400,
+      "observed_search_requests": 2783,
+      "grafana_all_endpoint_requests": 29027.36842105263,
+      "search_fraction": 0.09587503626341747
+    },
+    {
+      "session": "noon",
+      "source_file": "2026-10-27-noon.json",
+      "source_sha256": "6b7bf51aa573358b85774ddbdb7f65cc2b9143482674068df6dd3e05939f3ee1",
+      "sample_start": "2026-10-27T12:22:00+07:00",
+      "sample_end": "2026-10-27T12:31:00+07:00",
+      "midpoint_seconds_wib": 44790,
+      "observed_search_requests": 2938,
+      "grafana_all_endpoint_requests": 28336.235294117647,
+      "search_fraction": 0.10368349816074202
+    },
+    {
+      "session": "afternoon",
+      "source_file": "2026-10-27-afternoon.json",
+      "source_sha256": "0f45dc09d4d79c313311ccf3c6abc185f812c095979fa164d697fe5c4c7708e6",
+      "sample_start": "2026-10-27T18:08:00+07:00",
+      "sample_end": "2026-10-27T18:18:00+07:00",
+      "midpoint_seconds_wib": 65580,
+      "observed_search_requests": 3477,
+      "grafana_all_endpoint_requests": 34998.94736842105,
+      "search_fraction": 0.09934584498781918
+    },
+    {
+      "session": "night",
+      "source_file": "2026-10-27-night.json",
+      "source_sha256": "3a123991a7f84d9879c2737e4efbdcece6938fe69687eca67e9e71bafc032936",
+      "sample_start": "2026-10-27T21:21:30+07:00",
+      "sample_end": "2026-10-27T21:29:30+07:00",
+      "midpoint_seconds_wib": 77130,
+      "observed_search_requests": 2729,
+      "grafana_all_endpoint_requests": 32190.09578533163,
+      "search_fraction": 0.08477762906327076
+    }
+  ],
+  "daily_all_endpoint_requests": {
+    "count": 30,
+    "mean": 3687822.348118468,
+    "median": 3482537.0307797855,
+    "min": 3298907.2568425518,
+    "max": 7402536.475437554
+  },
+  "naive_constant_sample_rpm_times_1440": 464185.945945946,
+  "pooled_search_to_grafana_total_fraction": 0.09575870364723577,
+  "interpolated_daily_search_estimate": {
+    "count": 30,
+    "mean": 350393.6388454611,
+    "median": 330593.84286271204,
+    "min": 312883.92171989713,
+    "max": 714783.0653616963
+  },
+  "constant_share_daily_search_estimate": {
+    "count": 30,
+    "mean": 353141.0873371294,
+    "median": 333483.2314709659,
+    "min": 315899.0823677014,
+    "max": 708857.2965892778
+  },
+  "model_choice_difference_percent": -0.778003067381805,
+  "observed_share_sensitivity_not_confidence_interval": {
+    "lowest_observed_slot_fraction": 0.08477762906327076,
+    "highest_observed_slot_fraction": 0.10368349816074202,
+    "daily_estimate_at_lowest_share": 312644.83508002764,
+    "daily_estimate_at_highest_share": 382366.3216482845
+  },
+  "interpolated_daily_estimate_excluding_oct10_for_sensitivity": {
+    "count": 29,
+    "mean": 337828.48620697024,
+    "median": 328353.50911824335,
+    "min": 312883.92171989713,
+    "max": 402305.9026340769
+  },
+  "hourly_profile": [
+    {
+      "hour_wib": 0,
+      "observations": 120,
+      "mean_all_endpoint_rps": 39.196317299545,
+      "interpolated_search_fraction": 0.08772575235834203,
+      "profile_mean_estimated_search_requests_per_day_during_hour": 12376.551015772335
+    },
+    {
+      "hour_wib": 1,
+      "observations": 120,
+      "mean_all_endpoint_rps": 37.28989107604816,
+      "interpolated_search_fraction": 0.08868449164129204,
+      "profile_mean_estimated_search_requests_per_day_during_hour": 11907.42640987342
+    },
+    {
+      "hour_wib": 2,
+      "observations": 120,
+      "mean_all_endpoint_rps": 31.317515743310704,
+      "interpolated_search_fraction": 0.08964323092424212,
+      "profile_mean_estimated_search_requests_per_day_during_hour": 10101.152162801782
+    },
+    {
+      "hour_wib": 3,
+      "observations": 120,
+      "mean_all_endpoint_rps": 19.959147213471567,
+      "interpolated_search_fraction": 0.0906019702071923,
+      "profile_mean_estimated_search_requests_per_day_during_hour": 6509.318187920235
+    },
+    {
+      "hour_wib": 4,
+      "observations": 120,
+      "mean_all_endpoint_rps": 20.669029210009935,
+      "interpolated_search_fraction": 0.09156070949014242,
+      "profile_mean_estimated_search_requests_per_day_during_hour": 6813.518750315586
+    },
+    {
+      "hour_wib": 5,
+      "observations": 120,
+      "mean_all_endpoint_rps": 23.907389960578172,
+      "interpolated_search_fraction": 0.09251944877309255,
+      "profile_mean_estimated_search_requests_per_day_during_hour": 7963.637342038705
+    },
+    {
+      "hour_wib": 6,
+      "observations": 120,
+      "mean_all_endpoint_rps": 28.24649634854011,
+      "interpolated_search_fraction": 0.09347818805604242,
+      "profile_mean_estimated_search_requests_per_day_during_hour": 9507.225582818437
+    },
+    {
+      "hour_wib": 7,
+      "observations": 120,
+      "mean_all_endpoint_rps": 33.13305311248697,
+      "interpolated_search_fraction": 0.09443692733899255,
+      "profile_mean_estimated_search_requests_per_day_during_hour": 11265.581192741722
+    },
+    {
+      "hour_wib": 8,
+      "observations": 120,
+      "mean_all_endpoint_rps": 38.13769856655541,
+      "interpolated_search_fraction": 0.09539566662194243,
+      "profile_mean_estimated_search_requests_per_day_during_hour": 13098.13635091518
+    },
+    {
+      "hour_wib": 9,
+      "observations": 120,
+      "mean_all_endpoint_rps": 45.497515911105346,
+      "interpolated_search_fraction": 0.09700943750758077,
+      "profile_mean_estimated_search_requests_per_day_during_hour": 15892.455821323667
+    },
+    {
+      "hour_wib": 10,
+      "observations": 120,
+      "mean_all_endpoint_rps": 56.07315020616251,
+      "interpolated_search_fraction": 0.09927823999590757,
+      "profile_mean_estimated_search_requests_per_day_during_hour": 20029.97790391047
+    },
+    {
+      "hour_wib": 11,
+      "observations": 120,
+      "mean_all_endpoint_rps": 50.370302464433145,
+      "interpolated_search_fraction": 0.10154704248423438,
+      "profile_mean_estimated_search_requests_per_day_during_hour": 18413.148895367372
+    },
+    {
+      "hour_wib": 12,
+      "observations": 120,
+      "mean_all_endpoint_rps": 49.012779411859526,
+      "interpolated_search_fraction": 0.10335027531953708,
+      "profile_mean_estimated_search_requests_per_day_during_hour": 18235.64418718201
+    },
+    {
+      "hour_wib": 13,
+      "observations": 120,
+      "mean_all_endpoint_rps": 48.666003912616176,
+      "interpolated_search_fraction": 0.10288857470769547,
+      "profile_mean_estimated_search_requests_per_day_during_hour": 18025.834018473874
+    },
+    {
+      "hour_wib": 14,
+      "observations": 120,
+      "mean_all_endpoint_rps": 48.374352869889584,
+      "interpolated_search_fraction": 0.1021374659331635,
+      "profile_mean_estimated_search_requests_per_day_during_hour": 17787.10135799112
+    },
+    {
+      "hour_wib": 15,
+      "observations": 120,
+      "mean_all_endpoint_rps": 47.987051394021705,
+      "interpolated_search_fraction": 0.10138635715863134,
+      "profile_mean_estimated_search_requests_per_day_during_hour": 17515.007785162175
+    },
+    {
+      "hour_wib": 16,
+      "observations": 120,
+      "mean_all_endpoint_rps": 47.97119781935194,
+      "interpolated_search_fraction": 0.10063524838409924,
+      "profile_mean_estimated_search_requests_per_day_during_hour": 17378.665007495565
+    },
+    {
+      "hour_wib": 17,
+      "observations": 120,
+      "mean_all_endpoint_rps": 48.405165262478015,
+      "interpolated_search_fraction": 0.09988413960956719,
+      "profile_mean_estimated_search_requests_per_day_during_hour": 17404.976051694754
+    },
+    {
+      "hour_wib": 18,
+      "observations": 120,
+      "mean_all_endpoint_rps": 51.27378568994255,
+      "interpolated_search_fraction": 0.09797245546807401,
+      "profile_mean_estimated_search_requests_per_day_during_hour": 18079.90135925029
+    },
+    {
+      "hour_wib": 19,
+      "observations": 120,
+      "mean_all_endpoint_rps": 51.881886299364304,
+      "interpolated_search_fraction": 0.0935185586179998,
+      "profile_mean_estimated_search_requests_per_day_during_hour": 17466.161839330696
+    },
+    {
+      "hour_wib": 20,
+      "observations": 120,
+      "mean_all_endpoint_rps": 53.25692029680481,
+      "interpolated_search_fraction": 0.08897781599216655,
+      "profile_mean_estimated_search_requests_per_day_during_hour": 17056.123347397075
+    },
+    {
+      "hour_wib": 21,
+      "observations": 120,
+      "mean_all_endpoint_rps": 54.009252264930005,
+      "interpolated_search_fraction": 0.08533073917651066,
+      "profile_mean_estimated_search_requests_per_day_during_hour": 16590.322737043847
+    },
+    {
+      "hour_wib": 22,
+      "observations": 120,
+      "mean_all_endpoint_rps": 52.443244446391354,
+      "interpolated_search_fraction": 0.08580827379244194,
+      "profile_mean_estimated_search_requests_per_day_during_hour": 16198.894052577056
+    },
+    {
+      "hour_wib": 23,
+      "observations": 120,
+      "mean_all_endpoint_rps": 47.298080661665935,
+      "interpolated_search_fraction": 0.08676701307539206,
+      "profile_mean_estimated_search_requests_per_day_during_hour": 14770.60275461748
+    }
+  ],
+  "daily": [
+    {
+      "date": "2026-09-27",
+      "all_endpoint_requests": 3682572.062981,
+      "mean_all_endpoint_rps": 42.62236184005787,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3683677.0741930385,
+      "profile_vs_counter_total_percent": 0.030006506135937805,
+      "traffic_weighted_interpolated_search_fraction": 0.09472976575773073,
+      "estimated_search_requests_interpolated": 348849.18891215336,
+      "estimated_search_requests_constant_share": 352638.32683858724
+    },
+    {
+      "date": "2026-09-28",
+      "all_endpoint_requests": 3437734.8091646777,
+      "mean_all_endpoint_rps": 39.788597328294884,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3439208.5824999884,
+      "profile_vs_counter_total_percent": 0.04287047771636132,
+      "traffic_weighted_interpolated_search_fraction": 0.09498504284997311,
+      "estimated_search_requests_interpolated": 326533.38815535104,
+      "estimated_search_requests_constant_share": 329193.028808587
+    },
+    {
+      "date": "2026-09-29",
+      "all_endpoint_requests": 3447301.05933223,
+      "mean_all_endpoint_rps": 39.89931781634525,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3446517.86448791,
+      "profile_vs_counter_total_percent": -0.022719073003496515,
+      "traffic_weighted_interpolated_search_fraction": 0.09482736941539154,
+      "estimated_search_requests_interpolated": 326898.491039368,
+      "estimated_search_requests_constant_share": 330109.08052339696
+    },
+    {
+      "date": "2026-09-30",
+      "all_endpoint_requests": 3520619.5205579544,
+      "mean_all_endpoint_rps": 40.74791111756892,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3520251.14849451,
+      "profile_vs_counter_total_percent": -0.010463273900895853,
+      "traffic_weighted_interpolated_search_fraction": 0.09499948468280157,
+      "estimated_search_requests_interpolated": 334457.04021721764,
+      "estimated_search_requests_constant_share": 337129.96132378245
+    },
+    {
+      "date": "2026-10-01",
+      "all_endpoint_requests": 3457926.8415522384,
+      "mean_all_endpoint_rps": 40.02230140685461,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3457683.1262247525,
+      "profile_vs_counter_total_percent": -0.007048018615007923,
+      "traffic_weighted_interpolated_search_fraction": 0.09495675419519513,
+      "estimated_search_requests_interpolated": 328353.50911824335,
+      "estimated_search_requests_constant_share": 331126.5916540228
+    },
+    {
+      "date": "2026-10-02",
+      "all_endpoint_requests": 3375815.1814923394,
+      "mean_all_endpoint_rps": 39.07193497097615,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3373280.2754242737,
+      "profile_vs_counter_total_percent": -0.07509019101410441,
+      "traffic_weighted_interpolated_search_fraction": 0.09497566004232026,
+      "estimated_search_requests_interpolated": 320620.2750431201,
+      "estimated_search_requests_constant_share": 323263.68553236435
+    },
+    {
+      "date": "2026-10-03",
+      "all_endpoint_requests": 3459585.4212313853,
+      "mean_all_endpoint_rps": 40.04149793091881,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3459400.568858053,
+      "profile_vs_counter_total_percent": -0.005343194366524973,
+      "traffic_weighted_interpolated_search_fraction": 0.09490885398600288,
+      "estimated_search_requests_interpolated": 328345.2875957538,
+      "estimated_search_requests_constant_share": 331285.41509399354
+    },
+    {
+      "date": "2026-10-04",
+      "all_endpoint_requests": 3646451.7670516395,
+      "mean_all_endpoint_rps": 42.20430285939398,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3647639.9517192524,
+      "profile_vs_counter_total_percent": 0.032584680766900576,
+      "traffic_weighted_interpolated_search_fraction": 0.09474117179731427,
+      "estimated_search_requests_interpolated": 345469.11331285955,
+      "estimated_search_requests_constant_share": 349179.4941250371
+    },
+    {
+      "date": "2026-10-05",
+      "all_endpoint_requests": 3374814.859314919,
+      "mean_all_endpoint_rps": 39.06035716799675,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3372006.619372795,
+      "profile_vs_counter_total_percent": -0.08321167409740537,
+      "traffic_weighted_interpolated_search_fraction": 0.09509809794258399,
+      "estimated_search_requests_interpolated": 320938.47402921796,
+      "estimated_search_requests_constant_share": 323167.895977425
+    },
+    {
+      "date": "2026-10-06",
+      "all_endpoint_requests": 3390399.3868175764,
+      "mean_all_endpoint_rps": 39.240733643721946,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3390423.6331351097,
+      "profile_vs_counter_total_percent": 0.0007151463520038703,
+      "traffic_weighted_interpolated_search_fraction": 0.09494300518675111,
+      "estimated_search_requests_interpolated": 321894.70656777895,
+      "estimated_search_requests_constant_share": 324660.25012803415
+    },
+    {
+      "date": "2026-10-07",
+      "all_endpoint_requests": 3393063.406206204,
+      "mean_all_endpoint_rps": 39.2715672014607,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3394671.2248261627,
+      "profile_vs_counter_total_percent": 0.04738545754900958,
+      "traffic_weighted_interpolated_search_fraction": 0.09484803041388708,
+      "estimated_search_requests_interpolated": 321825.3811480933,
+      "estimated_search_requests_constant_share": 324915.35317118024
+    },
+    {
+      "date": "2026-10-08",
+      "all_endpoint_requests": 3713591.5370284645,
+      "mean_all_endpoint_rps": 42.98138353042204,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3712402.6176986564,
+      "profile_vs_counter_total_percent": -0.032015350044645174,
+      "traffic_weighted_interpolated_search_fraction": 0.09485138289737384,
+      "estimated_search_requests_interpolated": 352239.29280313395,
+      "estimated_search_requests_constant_share": 355608.7114611915
+    },
+    {
+      "date": "2026-10-09",
+      "all_endpoint_requests": 4070782.539890675,
+      "mean_all_endpoint_rps": 47.11553865614207,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 4072126.2242227355,
+      "profile_vs_counter_total_percent": 0.03300801059484826,
+      "traffic_weighted_interpolated_search_fraction": 0.09502042454315589,
+      "estimated_search_requests_interpolated": 386807.48516327835,
+      "estimated_search_requests_constant_share": 389812.85884973285
+    },
+    {
+      "date": "2026-10-10",
+      "all_endpoint_requests": 7402536.475437554,
+      "mean_all_endpoint_rps": 85.67750550274947,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 7399638.030133278,
+      "profile_vs_counter_total_percent": -0.03915475883020658,
+      "traffic_weighted_interpolated_search_fraction": 0.09655920882435726,
+      "estimated_search_requests_interpolated": 714783.0653616963,
+      "estimated_search_requests_constant_share": 708857.2965892778
+    },
+    {
+      "date": "2026-10-11",
+      "all_endpoint_requests": 4239074.268271298,
+      "mean_all_endpoint_rps": 49.06335958647336,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 4240476.3549711,
+      "profile_vs_counter_total_percent": 0.03307530397134162,
+      "traffic_weighted_interpolated_search_fraction": 0.094904188314242,
+      "estimated_search_requests_interpolated": 402305.9026340769,
+      "estimated_search_requests_constant_share": 405928.25659401406
+    },
+    {
+      "date": "2026-10-12",
+      "all_endpoint_requests": 4056212.082395934,
+      "mean_all_endpoint_rps": 46.94689910180479,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 4057002.6294932533,
+      "profile_vs_counter_total_percent": 0.01948978705403892,
+      "traffic_weighted_interpolated_search_fraction": 0.09508647067076766,
+      "estimated_search_requests_interpolated": 385690.8912071544,
+      "estimated_search_requests_constant_share": 388417.6107284893
+    },
+    {
+      "date": "2026-10-13",
+      "all_endpoint_requests": 3946160.82430915,
+      "mean_all_endpoint_rps": 45.67315768876331,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3949081.7700379053,
+      "profile_vs_counter_total_percent": 0.0740199363077565,
+      "traffic_weighted_interpolated_search_fraction": 0.09502196923170038,
+      "estimated_search_requests_interpolated": 374971.9724308455,
+      "estimated_search_requests_constant_share": 377879.24491935153
+    },
+    {
+      "date": "2026-10-14",
+      "all_endpoint_requests": 3720723.1158458977,
+      "mean_all_endpoint_rps": 43.063924951920114,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3718868.6194568444,
+      "profile_vs_counter_total_percent": -0.04984236481223592,
+      "traffic_weighted_interpolated_search_fraction": 0.09501560522799876,
+      "estimated_search_requests_interpolated": 353526.7587379033,
+      "estimated_search_requests_constant_share": 356291.622203707
+    },
+    {
+      "date": "2026-10-15",
+      "all_endpoint_requests": 3505488.6403281856,
+      "mean_all_endpoint_rps": 40.57278518898363,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3505803.2837218745,
+      "profile_vs_counter_total_percent": 0.008975735652638761,
+      "traffic_weighted_interpolated_search_fraction": 0.0949465854141295,
+      "estimated_search_requests_interpolated": 332834.17660718074,
+      "estimated_search_requests_constant_share": 335681.0478479382
+    },
+    {
+      "date": "2026-10-16",
+      "all_endpoint_requests": 3406607.417571971,
+      "mean_all_endpoint_rps": 39.428326592268185,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3403619.457050651,
+      "profile_vs_counter_total_percent": -0.08771073842873678,
+      "traffic_weighted_interpolated_search_fraction": 0.09493808501894362,
+      "estimated_search_requests_interpolated": 323416.78463561175,
+      "estimated_search_requests_constant_share": 326212.3101417495
+    },
+    {
+      "date": "2026-10-17",
+      "all_endpoint_requests": 3335927.5630076625,
+      "mean_all_endpoint_rps": 38.6102727199961,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3336916.0866243886,
+      "profile_vs_counter_total_percent": 0.02963264633464302,
+      "traffic_weighted_interpolated_search_fraction": 0.094806443574599,
+      "estimated_search_requests_interpolated": 316267.4282712355,
+      "estimated_search_requests_constant_share": 319444.09889469616
+    },
+    {
+      "date": "2026-10-18",
+      "all_endpoint_requests": 3577925.8737245738,
+      "mean_all_endpoint_rps": 41.411179094034416,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3578536.964151253,
+      "profile_vs_counter_total_percent": 0.017079460230484678,
+      "traffic_weighted_interpolated_search_fraction": 0.09480591752948773,
+      "estimated_search_requests_interpolated": 339208.5453109523,
+      "estimated_search_requests_constant_share": 342617.5434137686
+    },
+    {
+      "date": "2026-10-19",
+      "all_endpoint_requests": 3520053.4037353634,
+      "mean_all_endpoint_rps": 40.74135883952967,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3521141.6456417944,
+      "profile_vs_counter_total_percent": 0.030915494215966177,
+      "traffic_weighted_interpolated_search_fraction": 0.09485428792791373,
+      "estimated_search_requests_interpolated": 333892.1590795469,
+      "estimated_search_requests_constant_share": 337075.75071073824
+    },
+    {
+      "date": "2026-10-20",
+      "all_endpoint_requests": 3515786.9628251297,
+      "mean_all_endpoint_rps": 40.691978736401964,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3516068.3757254547,
+      "profile_vs_counter_total_percent": 0.008004264857364163,
+      "traffic_weighted_interpolated_search_fraction": 0.09474680305756639,
+      "estimated_search_requests_interpolated": 333109.574959152,
+      "estimated_search_requests_constant_share": 336667.2018599867
+    },
+    {
+      "date": "2026-10-21",
+      "all_endpoint_requests": 3372435.030700288,
+      "mean_all_endpoint_rps": 39.03281285532741,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3371494.1090855794,
+      "profile_vs_counter_total_percent": -0.02790036297639631,
+      "traffic_weighted_interpolated_search_fraction": 0.09483994431980303,
+      "estimated_search_requests_interpolated": 319841.5505337685,
+      "estimated_search_requests_constant_share": 322940.0066743853
+    },
+    {
+      "date": "2026-10-22",
+      "all_endpoint_requests": 3298907.2568425518,
+      "mean_all_endpoint_rps": 38.1817969541962,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3297746.4968576087,
+      "profile_vs_counter_total_percent": -0.035186196354430876,
+      "traffic_weighted_interpolated_search_fraction": 0.0948447159497792,
+      "estimated_search_requests_interpolated": 312883.92171989713,
+      "estimated_search_requests_constant_share": 315899.0823677014
+    },
+    {
+      "date": "2026-10-23",
+      "all_endpoint_requests": 3430819.472778133,
+      "mean_all_endpoint_rps": 39.70855871270987,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3430920.243794377,
+      "profile_vs_counter_total_percent": 0.0029372287595919033,
+      "traffic_weighted_interpolated_search_fraction": 0.09487313356145537,
+      "estimated_search_requests_interpolated": 325492.59406612173,
+      "estimated_search_requests_constant_share": 328530.8251609269
+    },
+    {
+      "date": "2026-10-24",
+      "all_endpoint_requests": 3404036.598918323,
+      "mean_all_endpoint_rps": 39.39857174673985,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3402190.0734153977,
+      "profile_vs_counter_total_percent": -0.05424517185015354,
+      "traffic_weighted_interpolated_search_fraction": 0.09478117929666849,
+      "estimated_search_requests_interpolated": 322638.6032144992,
+      "estimated_search_requests_constant_share": 325966.13188016403
+    },
+    {
+      "date": "2026-10-25",
+      "all_endpoint_requests": 3540405.779215213,
+      "mean_all_endpoint_rps": 40.976918740916815,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3539914.518504341,
+      "profile_vs_counter_total_percent": -0.01387583066765341,
+      "traffic_weighted_interpolated_search_fraction": 0.09480857580753616,
+      "estimated_search_requests_interpolated": 335660.8297081646,
+      "estimated_search_requests_constant_share": 339024.6678028304
+    },
+    {
+      "date": "2026-10-26",
+      "all_endpoint_requests": 3390911.2850254886,
+      "mean_all_endpoint_rps": 39.24665839149871,
+      "profile_intervals": 96,
+      "profile_integrated_all_endpoint_requests": 3394032.9938664534,
+      "profile_vs_counter_total_percent": 0.09206105906547357,
+      "traffic_weighted_interpolated_search_fraction": 0.09497528738149666,
+      "estimated_search_requests_interpolated": 322052.77378045593,
+      "estimated_search_requests_constant_share": 324709.2688368232
+    }
+  ],
+  "methodology": "Compute search-to-Caddy-total fractions for each observed time window. Place each fraction at the window midpoint and linearly interpolate in local time, wrapping from the night observation to the next morning. Weight each day's interpolated fractions by its observed 15-minute total-traffic profile. Multiply that traffic-weighted fraction by the day's 24-hour Caddy counter increase. Average the modeled daily search volumes over 30 complete days.",
+  "assumptions": [
+    "The four search-to-total fractions observed on October 27 are representative of those times on other days.",
+    "Search share between sampled times, including unobserved overnight hours, changes smoothly according to periodic linear interpolation.",
+    "The Caddy metric measures a sufficiently comparable all-endpoint traffic population throughout the period. The same Caddy denominator is used in both observed ratios and historical traffic weighting."
+  ],
+  "limitations": [
+    "Daily search request volumes are modeled estimates, not observed 24-hour search counts.",
+    "Four windows on one day do not identify overnight search share or day-to-day changes in request mix. Model-sensitivity scenarios are not statistical confidence bounds.",
+    "The 127 ms median is measured only in the 37 sampled minutes and is not projected to the full day.",
+    "The October 10 traffic outlier is retained in the primary 30-day average. An excluding-outlier result is a separate sensitivity calculation."
+  ],
+  "labeling": {
+    "required_for_cv": "estimated daily search requests",
+    "recommended_rounding": "Round the daily estimate to the nearest 10,000 or use a broader approximate figure. Do not present it as a measured daily count.",
+    "rounded_daily_estimate_for_cv": 350000
+  }
+}
