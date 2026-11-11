@@ -5,11 +5,11 @@
 % License : MIT
 %------------------------
 
-\documentclass[letterpaper,11pt]{article}
+\documentclass[a4paper,11pt]{article}
 
 \usepackage{fontawesome5}
 \usepackage{latexsym}
-\usepackage[empty]{fullpage}
+\usepackage[a4paper,left=0.4in,right=0.4in,top=0.3in,bottom=0.2in]{geometry}
 \usepackage{titlesec}
 \usepackage{marvosym}
 \usepackage[usenames,dvipsnames]{color}
@@ -30,13 +30,6 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
-% Adjust margins
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.7in}
-\addtolength{\textheight}{1.0in}
-
 \urlstyle{same}
 
 \raggedbottom
@@ -45,8 +38,11 @@
 
 % Sections formatting
 \titleformat{\section}{
-  \vspace{-12pt}\scshape\raggedright\large
-}{}{0em}{}[\color{black}\titlerule\vspace{-6pt}]
+  \scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule]
+\titlespacing*{\section}{0pt}{12pt}{2pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
 
 % Ensure that generate pdf is machine readable/ATS parsable
 \ifdefined\pdfgentounicode
@@ -64,17 +60,17 @@
 %----------HEADING----------%
 \input{src/heading}
 
-%-----------EDUCATION-----------%
-\input{src/education}
-
 %-----------EXPERIENCE-----------%
 \input{src/experience}
 
-%-----------CERTIFICATIONS-----------%
-\input{src/certification}
-
 %-----------SKILLS-----------%
 \input{src/skills}
+
+%-----------EDUCATION-----------%
+\input{src/education}
+
+%-----------TRAINING-----------%
+\input{src/certification}
 
 %-------------------------------------------%
 \end{document}
