@@ -5,47 +5,59 @@
       {Software Engineer}{Apr 2026 -- Present}
       {Kick Avenue}{Jakarta, Indonesia (Remote)}
       \resumeItemListStart
-        \resumeItem{Owned end-to-end delivery of customer reviews, ratings, and photo uploads across backend, web, and mobile, with 13.5\% of tracked mobile review viewers without prior purchases making their first paid purchase within seven days.}
-        \resumeItem{Built an end-to-end affiliate program across backend, web, and mobile, covering referral attribution, commission processing, and performance dashboards, pending release.}
-        \resumeItem{Maintained and extended OpenSearch-powered search across backend, web, and mobile, handling an estimated 350,000 daily search requests with a 127 ms median API response time in production samples.}
-        \resumeItem{Resolved legacy push notification bugs causing duplicate sends and missed deliveries while automating push reminders, with 25\% of the browsing-reminder cohort observed returning to product browsing within 24 hours.}
-        \resumeItem{Hardened Midtrans checkout with transactional locking to prevent overselling and lost inventory updates, safely routing 48 stock-conflict payments to refunds in the first month after release.}
-        \resumeItem{Designed a proposed Laravel-to-Go migration strategy using the Strangler Fig pattern, defining phased rollout and rollback plans alongside modular monolith architecture and Go coding standards.}
+        \resumeItem{Optimized OpenSearch size matching and facet fallbacks, reducing a multi-size query from 10.2 s to 1.1 s in production benchmarks; supported an estimated 350,000 search requests/day.}
+        \resumeItem{Reduced Laravel seller-list response time from 17.3 s to 3.1 s in a cold-request benchmark against production data using batched queries and SQL aggregation.}
+        \resumeItem{Hardened Laravel/MariaDB checkout with transactional locking to prevent overselling and lost inventory updates; routed 48 stock-conflict Midtrans payments to refunds in the first month after release.}
+        \resumeItem{Added Kubernetes migration gates and enforced 80\% test coverage of changed executable lines in CI/CD, blocking deployments on migration failures.}
+        \resumeItem{Integrated DANA payments through Midtrans across Laravel and Flutter checkout and offers, handling wallet redirects, payment verification, and ambiguous-payment recovery.}
+        \resumeItem{Delivered customer reviews, ratings, and photo uploads using Laravel, Next.js, and Flutter; observed a 13.5\% seven-day first-purchase rate among tracked mobile review viewers with no prior purchases.}
+        \resumeItem{Made Next.js top-ups recoverable after payment interruptions with one-time Midtrans initiation and invoice recovery to prevent duplicate payment requests.}
+        \resumeItem{Rebuilt consignment exports with streamed XLSX generation, private download links, and RabbitMQ redelivery safeguards to avoid loading full reports into memory and repeating failed work.}
+        \resumeItem{Recovered 81 GiB on shared CI runners by removing 380 abandoned Docker volumes; automated cleanup to prevent disk exhaustion.}
+        \resumeItem{Built an affiliate program across backend, web, and mobile with referral attribution, performance dashboards, atomic commission processing, and failure recovery.}
+        \resumeItem{Built browsing reminders and fixed duplicate and missed push notifications using atomic claims and failure recovery; 25\% of users in the measured reminder cohort returned to product browsing within 24 hours.}
+        \resumeItem{Proposed a phased Laravel-to-Go migration to a modular monolith using the Strangler Fig pattern, with shadow validation, canary releases, single-writer ownership, and rollback safeguards.}
       \resumeItemListEnd
 
     \resumeSubheading
       {Software Engineer}{Apr 2025 -- Apr 2026}
       {MainStory}{Jakarta, Indonesia (Remote)}
       \resumeItemListStart
-        \resumeItem{Architected an automated Quality Control (QC) audit system using Redis Queue for asynchronous tasks and LLMs to review 500+ daily reports and photos, reducing manual workload and improving content oversight.}
-        \resumeItem{Built an automated hiring pipeline using n8n: engineered scrapers for Glints/Jobstreet/KitaLulus, WhatsApp outreach via WATI, and implemented AI-driven scoring of Hireflix interviews to replace manual screening.}
-        \resumeItem{Revamped the end-to-end CI/CD pipeline for both front-end and back-end services using Docker, automating deployments for staging and production environments to reduce manual errors and accelerate release cycles.}
-        \resumeItem{Established an observability stack integrating Grafana and Loki for centralized logging, and configured automated Slack alerting for production and staging errors, leading to faster debugging and incident response.}
-        \resumeItem{Engineered monetization features including nanny rating, tipping, and automated overtime calculation, integrating with the Xendit payment gateway to successfully increase average nanny earnings by 10-20\% monthly.}
+        \resumeItem{Automated quality-control reviews of 500+ daily reports and photos using Redis Queue background jobs and large language models (LLMs), reducing manual review work.}
+        \resumeItem{Built nanny ratings, tipping, and overtime calculation with Xendit payments; average monthly nanny earnings increased 10-20\% after launch.}
+        \resumeItem{Automated staging and production deployments for frontend and backend services using Docker-based CI/CD.}
+        \resumeItem{Centralized logs with Grafana and Loki and configured Slack error alerts across staging and production.}
+        \resumeItem{Automated candidate sourcing from Glints, Jobstreet, and KitaLulus, WhatsApp outreach via WATI, and AI scoring of Hireflix interviews using n8n.}
       \resumeItemListEnd
 
+  \resumeSubHeadingListEnd
+
+% Keep earlier roles together on the second page of the expanded CV.
+\newpage
+\section{Experience (continued)}
+  \resumeSubHeadingListStart
     \resumeSubheading
       {Web3 Developer (Freelance)}{Jan 2025 -- Jun 2025}
       {Self-Employed}{(Remote)}
       \resumeItemListStart 
-        \resumeItem{Launched 5 promotional websites for cryptocurrency projects, engineering complex and interactive user interfaces with Next.js and Tailwind CSS, and integrating 3D objects and animations using Spline to drive user engagement.}
-        \resumeItem{Developed a supporting backend using Python and FastAPI to fetch and process on-chain data, leveraging Large Language Models (LLMs) via prompt engineering for advanced data synthesis and interpretation.}
-        \resumeItem{Expanded project accessibility by developing a browser extension and a mobile application using React Native.}
+        \resumeItem{Built Python/FastAPI APIs for LLM-powered news credibility analysis and PDF tax-report downloads; updated Solana RPC integrations for on-chain transaction retrieval.}
+        \resumeItem{Developed a Chrome extension and React Native app for AI-powered news credibility analysis with saved history.}
+        \resumeItem{Launched five cryptocurrency promotional websites using Next.js, Tailwind CSS, and Spline for animated 3D content.}
       \resumeItemListEnd
 
     \resumeSubheading
       {Frontend Developer Intern}{Nov 2024 -- Apr 2025}
       {AssistX Enterprise}{Jakarta, Indonesia (Remote)}
       \resumeItemListStart
-        \resumeItem{Engineered and implemented new data-driven pages and reusable interactive components for an internal monitoring platform using Next.js and Material UI, delivering a scalable and high-performance front-end solution.}
+        \resumeItem{Built data-driven pages and reusable components for an internal monitoring platform using Next.js and Material UI.}
       \resumeItemListEnd
 
     \resumeSubheading
       {Software Engineer Intern}{Jul 2024 -- Sept 2024}
       {Charoen Pokphand Indonesia}{Jakarta, Indonesia}
       \resumeItemListStart
-        \resumeItem{Pioneered the company's first biometric attendance solution, single-handedly designing and building the verification backend with Python and FastAPI to eliminate identity fraud for 5,000+ employees across 2,000+ stores.}
-        \resumeItem{Enhanced the front-end React Native app by introducing a suite of accountability features, headlined by randomized check-ins and the seamless integration of the new biometric system.}
+        \resumeItem{Built a Python/FastAPI biometric attendance backend to deter identity fraud (not deployed to production).}
+        \resumeItem{Integrated biometric verification and randomized check-ins into the React Native attendance app.}
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd

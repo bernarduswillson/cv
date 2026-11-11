@@ -1,4 +1,4 @@
-# Kick Avenue - Point 1: Customer reviews
+# Kick Avenue: Customer reviews
 
 **Keynote:** I owned customer reviews, ratings, and photo uploads across the backend, web, and mobile apps. In a retrospective analysis, I matched identifiable mobile review-screen viewers to production payment records. Of 3,476 accounts with no prior recorded paid purchase, 468 made their first paid purchase within seven days of their first recorded review view in the analysis period. That is a 13.5% conversion rate. It describes the purchase journey we observed, rather than a proven increase caused by reviews.
 

@@ -4,12 +4,16 @@
 
 ## Interview keynotes
 
-One concise keynote per CV point.
+Supporting evidence and interview notes for selected CV accomplishments.
 
-- [Kick Avenue - Point 1: Customer reviews](docs/speaker-notes/kick-avenue-customer-reviews.md)
-- [Kick Avenue - Point 2: Affiliate program](docs/speaker-notes/kick-avenue-affiliate.md)
-- [Kick Avenue - Point 3: Search and product discovery](docs/speaker-notes/kick-avenue-search.md)
-- [Kick Avenue - Point 4: Push notifications and re-engagement](docs/speaker-notes/kick-avenue-push-notifications.md)
+- [Kick Avenue: Search and product discovery](docs/speaker-notes/kick-avenue-search.md)
+- [Kick Avenue: Seller listing performance](docs/speaker-notes/kick-avenue-seller-listings.md)
+- [Kick Avenue: CI/CD, payments, and reporting](docs/speaker-notes/kick-avenue-engineering-delivery.md)
+- [Kick Avenue: Customer reviews](docs/speaker-notes/kick-avenue-customer-reviews.md)
+- [Kick Avenue: Affiliate program](docs/speaker-notes/kick-avenue-affiliate.md)
+- [Kick Avenue: Push notifications and re-engagement](docs/speaker-notes/kick-avenue-push-notifications.md)
+
+[Commit research and alternative accomplishments (November 11, 2026)](docs/metrics/commit-review/2026-11-11-impact-review.json)
 
 ## Build
 

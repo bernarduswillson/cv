@@ -1,0 +1,719 @@
+{
+  "review_date": "2026-11-11",
+  "target_role": "Backend / full-stack software engineer",
+  "coverage": "418 discoverable authored PRs across Laravel (285), Next.js (51), and Flutter (82), their commit pages, indexed commit searches and local histories. Strongest candidates selectively reviewed against implementation. Counts include open and unmerged work; rebased commits are not independent accomplishments.",
+  "cv_decision": "User approved a two-page expanded CV preserving existing accomplishments. Added seller-list performance, Kubernetes migration and coverage gates, DANA integration, Next.js payment recovery, streamed consignment reports, and CI runner cleanup. Ordered each role by backend/full-stack relevance and evidence strength; kept complete roles together across pages.",
+  "limitations": "Historical benchmark results are documented in PRs and were not rerun for this CV review. Merged status alone does not prove production release. No new measured Next.js or Flutter business uplift was established.",
+  "repositories": {
+    "laravel": {
+      "snapshot_date": "2026-11-11",
+      "repository": "kickavenue/be-api-laravel",
+      "target_author": "bernarduswillson",
+      "scope": "Read-only comprehensive discoverable authored commit/PR inventory and selective evidence review of strongest CV candidates. No repository changes, tests, external writes, or new PN queries.",
+      "coverage": {
+        "github_commit_search": {
+          "returned": 202,
+          "total_count": 202,
+          "pages": 3,
+          "incomplete_results": false
+        },
+        "all_authored_prs": 285,
+        "merged_prs": 243,
+        "open_prs": 13,
+        "closed_unmerged_prs": 29,
+        "all_pr_commit_connections_complete": true,
+        "github_unique_authored_shas_union": 1090,
+        "local_plus_github_unique_authored_shas": 1904,
+        "local_only_shas": 814,
+        "stash_related_shas_in_raw_union": 10,
+        "date_start": "2026-04-14",
+        "date_end": "2026-11-11",
+        "interpretation": "Raw SHA counts include merges, rebases, squash duplicates, draft/open work and local checkpoints. They do not count independent accomplishments. Deleted unreachable history, unlinked identities and inaccessible objects cannot be guaranteed; all discoverable authored PRs and indexed results were enumerated. GitHub login is primary attribution; local bewe aliases were observed in this repository."
+      },
+      "production_evidence": {
+        "latest_successful_run": "https://github.com/kickavenue/be-api-laravel/actions/runs/43001319435",
+        "head_sha": "bac56cf7d3a35f8cc897049f813f9c28a5658200",
+        "created_at": "2026-11-11T10:10:10Z",
+        "steps_confirmed": [
+          "Run migrations before deployment: success",
+          "Deploy to Production: success"
+        ],
+        "rebase_caution": "PR merge SHAs for675,681,1077 diverged from main after history changes. Their corresponding authored squash/rebased main commits were separately confirmed as ancestors of this successful production run. Pipeline success establishes deployed code path, not a business-effect or latency measurement."
+      },
+      "candidates": [
+        {
+          "key": "seller_listing_latency",
+          "rank": 1,
+          "prs": [
+            {
+              "number": 675,
+              "url": "https://github.com/kickavenue/be-api-laravel/pull/675",
+              "mergedAt": "2026-08-04T04:31:49Z",
+              "original_base": "staging",
+              "title": "perf(KB-5375): reduce latency of the seller selling-list endpoint"
+            }
+          ],
+          "verified_facts": [
+            "Batched highest-bid loading instead of per-listing queries.",
+            "Pushed exact seller/group predicates into SQL; used two-phase ID pagination, SQL SUM/COUNT, bounded page aggregates and count caching.",
+            "Diff and main commit confirm implementation; production ancestry confirmed."
+          ],
+          "measurement_evidence": {
+            "source": "Merged PR body, historical production read-only benchmark; not rerun today",
+            "samples": [
+              {
+                "scenario": "218k-result seller,16 rows",
+                "before_seconds": 17.27,
+                "after_seconds": 3.07,
+                "before_queries": 31,
+                "after_queries": 20,
+                "reduction_percent": 82.22
+              },
+              {
+                "scenario": "218k-result seller,100 rows",
+                "before_seconds": 24.19,
+                "after_seconds": 3.08,
+                "before_queries": 115,
+                "after_queries": 20,
+                "reduction_percent": 87.27
+              },
+              {
+                "scenario": "independent219k-result seller,16 rows",
+                "before_seconds": 15.95,
+                "after_seconds": 2.91,
+                "before_queries": 30,
+                "after_queries": 18
+              }
+            ]
+          },
+          "limits": [
+            "Requests ran from development machine against read-only production data; wall time includes network latency.",
+            "Not fleet-wide latency, p95, or demonstrated SLO.",
+            "Exact active-status extreme seller path remained approximately11.54s.",
+            "Response parity and repeated review-fix results documented in PR; raw historical profiler files not retrieved."
+          ],
+          "suggested_cv_wording": "Optimized Laravel seller listings with batched queries and SQL aggregation, cutting cold-request time from17.3s to3.1s for a218,000-listing seller in production-data benchmarks."
+        },
+        {
+          "key": "collection_cold_cache",
+          "rank": 2,
+          "prs": [
+            {
+              "number": 681,
+              "url": "https://github.com/kickavenue/be-api-laravel/pull/681",
+              "mergedAt": "2026-08-04T04:25:05Z",
+              "original_base": "staging",
+              "title": "perf(KB-5382): optimize collection cold-miss query"
+            }
+          ],
+          "verified_facts": [
+            "Filtered eligible variants before expensive calculations.",
+            "Replaced broad trending aggregation with indexed seven-day counts; batch-loaded category images.",
+            "Added Redis locks and double-checked cache reads to coordinate concurrent rebuilds."
+          ],
+          "measurement_evidence": {
+            "source": "Merged PR body; six order-balanced paired requests, fresh PHP process and isolated Redis against same read-only production DB",
+            "request_median_before_seconds": 6.947,
+            "request_median_after_seconds": 2.895,
+            "request_reduction_percent": 58.3,
+            "database_before_seconds": 6.532,
+            "database_after_seconds": 2.531,
+            "queries_before": 27,
+            "queries_after": 18,
+            "eligible_products": 932,
+            "catalog_variants": 247839
+          },
+          "limits": [
+            "One collection cold-cache scenario; not site-wide latency or p95.",
+            "Remote client network overhead included.",
+            "Response bodies matched within pairs excluding timestamp-dependent signed URLs."
+          ],
+          "suggested_cv_wording": "Reduced collection cold-cache response time58% in production-data benchmarks by optimizing SQL aggregates, batching image lookups, and coordinating Redis cache rebuilds."
+        },
+        {
+          "key": "ci_cd_migration_and_coverage",
+          "rank": 3,
+          "prs": [
+            {
+              "number": 973,
+              "url": "https://github.com/kickavenue/be-api-laravel/pull/973",
+              "mergedAt": "2026-09-17T13:49:35Z",
+              "original_base": "staging",
+              "title": "chore: run migrations before production and staging deployment"
+            },
+            {
+              "number": 974,
+              "url": "https://github.com/kickavenue/be-api-laravel/pull/974",
+              "mergedAt": "2026-09-17T13:52:19Z",
+              "original_base": "staging",
+              "title": "feat(ci): enforce 80 percent coverage of changed executable lines"
+            }
+          ],
+          "verified_facts": [
+            "Added isolated Kubernetes migration Jobs before production and staging rollout, with deadlines, retained diagnostics and rollout blocking on failures.",
+            "Required80% coverage of added/changed executable application lines in selected PHPUnit runs.",
+            "Verified production workflow migration and deployment steps succeeded on2026-11-11."
+          ],
+          "measurement_evidence": {
+            "coverage_threshold_percent": 80,
+            "meaning": "Configured changed-line quality gate, not overall repository test coverage."
+          },
+          "limits": [
+            "No measured reduction in incidents or deployment duration.",
+            "Migration step success can include nothing-to-migrate; do not imply every run changed schema."
+          ],
+          "suggested_cv_wording": "Hardened CI/CD with Kubernetes migration gates and80% changed-line test coverage, blocking rollout on migration failures and rejecting insufficiently tested changes."
+        },
+        {
+          "key": "ci_runner_recovery",
+          "rank": 4,
+          "prs": [
+            {
+              "number": 1077,
+              "url": "https://github.com/kickavenue/be-api-laravel/pull/1077",
+              "mergedAt": "2026-10-23T08:34:08Z",
+              "original_base": "staging",
+              "title": "fix(ci): prevent service volumes accumulating"
+            }
+          ],
+          "verified_facts": [
+            "Introduced unique run/attempt service-volume names and post-teardown cleanup.",
+            "Added scheduled cleanup for abandoned unused CI volumes older than24h, with isolation, concurrent cleanup and host guards.",
+            "Implementation diff and rebased deployed main ancestry verified."
+          ],
+          "measurement_evidence": {
+            "source": "Historical incident-recovery result documented in merged PR body",
+            "unused_volumes_removed": 380,
+            "free_disk_space_restored_gib": 81
+          },
+          "limits": [
+            "81GiB is one-time recovery documented by author, not an independently reproduced measurement or recurring saving.",
+            "No measured change in CI failure rate."
+          ],
+          "suggested_cv_wording": "Recovered81GiB on shared CI runners and automated safe cleanup of abandoned Docker volumes to prevent disk exhaustion."
+        },
+        {
+          "key": "consignment_reporting",
+          "rank": 5,
+          "prs": [
+            {
+              "number": 995,
+              "url": "https://github.com/kickavenue/be-api-laravel/pull/995",
+              "mergedAt": "2026-09-28T09:23:44Z",
+              "original_base": "staging",
+              "title": "fix(KB-5832): stream consignment reports within memory limit"
+            },
+            {
+              "number": 996,
+              "url": "https://github.com/kickavenue/be-api-laravel/pull/996",
+              "mergedAt": "2026-09-28T09:23:45Z",
+              "original_base": "fix/KB-5832-consignment-report-memory",
+              "title": "feat(KB-5833): email consignment report download links"
+            },
+            {
+              "number": 999,
+              "url": "https://github.com/kickavenue/be-api-laravel/pull/999",
+              "mergedAt": "2026-09-28T09:23:46Z",
+              "original_base": "feat/KB-5833-consignment-report-download-link",
+              "title": "fix(KB-5835): suppress redelivered consignment reports"
+            }
+          ],
+          "verified_facts": [
+            "Replaced in-memory workbook construction with streamed OpenSpout output and lazy row reads.",
+            "Final diff uses200-row read chunks while retaining1000-row worksheets; PR body says1000-row Eloquent chunks and is stale on that detail.",
+            "Published only completed workbooks, uploaded private objects, emailed expiring signed links instead of attachments.",
+            "Routed unsent RabbitMQ redeliveries into failure/dead-letter recovery rather than repeating expensive report work."
+          ],
+          "measurement_evidence": {
+            "numeric_memory_result": null
+          },
+          "limits": [
+            "Production-scale peak memory not measured in PR.",
+            "Do not claim specific memory/time reductions or guaranteed exactly-once email delivery.",
+            "Redelivered unsent jobs are failed for operator recovery, not transparently retried to success."
+          ],
+          "suggested_cv_wording": "Rebuilt consignment reporting with streamed XLSX generation, private download links, and RabbitMQ redelivery safeguards to avoid in-memory exports and repeated processing."
+        },
+        {
+          "key": "dana_payment_integration",
+          "rank": 6,
+          "prs": [
+            {
+              "number": 1013,
+              "url": "https://github.com/kickavenue/be-api-laravel/pull/1013",
+              "mergedAt": "2026-10-07T04:25:46Z",
+              "original_base": "staging",
+              "title": "feat(KB-5848): add DANA checkout and offer payments"
+            }
+          ],
+          "verified_facts": [
+            "Added DANA to eligible Buy Now and offer payments through Midtrans.",
+            "Implemented franchise-aware callback/finish URLs, gateway transaction verification, settlement/expiry/cancellation routing.",
+            "Added safe retries for known failures and reconciliation after ambiguous attempts."
+          ],
+          "measurement_evidence": {
+            "adoption_or_revenue": null
+          },
+          "limits": [
+            "No new production transaction counts or adoption measurement.",
+            "Do not claim increased payment conversion or revenue."
+          ],
+          "suggested_cv_wording": "Integrated DANA through Midtrans across checkout and negotiated offers, handling callbacks, settlement, cancellations, and ambiguous-payment recovery."
+        }
+      ],
+      "additional_verified_reserves": [
+        {
+          "prs": [
+            637
+          ],
+          "summary": "People Also Viewed lift-ranking optimization: direct profiler measurement around1.6s server-side DB work; covering-index1.0s end-to-end estimate was projected, not measured. Avoid invented before/after percentage."
+        },
+        {
+          "prs": [
+            1009
+          ],
+          "summary": "Atomic operator-setting audit trail, before/after state, row locks and rollback across five CMS routes. Strong correctness ownership but no measured operational impact."
+        },
+        {
+          "prs": [
+            767,
+            1044
+          ],
+          "summary": "Admin route role enforcement and payment-status ownership authorization. Do not imply all payment endpoints were secured; scopes differ."
+        },
+        {
+          "prs": [
+            1094
+          ],
+          "summary": "Shopee sold-out synchronization lock wait90s→1s for a scoped caller, deferred retry without budget exhaustion, timeout containment for newly queued messages. Configured wait change is not measured90x speedup."
+        }
+      ],
+      "recommendation": "For backend roles, seller-list optimization is the strongest new accomplishment and a stronger replacement for the proposed Go migration bullet. The CI/CD item offers broader ownership with deployed evidence. Collection optimization can substitute for seller latency if preferred, but avoid overloading a one-page CV with several similar performance bullets. Historical benchmark numbers are backed by PR documentation and implementation, not rerun measurements.",
+      "artifacts": {
+        "full_commit_index": "/tmp/bernardus-cv-review/laravel-impact-commit-index-full.json",
+        "all_authored_pr_commit_pages": "/tmp/bernardus-cv-review/laravel-impact-all-pr-commits.json",
+        "merged_pr_index_with_bodies": "/tmp/bernardus-cv-review/laravel-impact-prs.json",
+        "github_commit_search_pages": "/tmp/bernardus-cv-review/laravel-impact-commits-pages.json",
+        "production_jobs": "/tmp/bernardus-cv-review/laravel-impact-prod-jobs.json",
+        "main_ancestry": "/tmp/bernardus-cv-review/laravel-impact-main-ancestry.json",
+        "rebased_production_ancestry": "/tmp/bernardus-cv-review/laravel-impact-rebased-production-ancestry.json",
+        "candidate_diffs": "/tmp/bernardus-cv-review/laravel-impact-pr-{number}.diff"
+      }
+    },
+    "nextjs": {
+      "repo": "kickavenue/fe-marketplace-next",
+      "author": "bernarduswillson",
+      "coverage": {
+        "github_search_commit_count": 38,
+        "authored_prs": 51,
+        "merged_prs": 33,
+        "open_prs": 14,
+        "closed_unmerged_prs": 4,
+        "unique_pr_commits_all_authors": 321,
+        "unique_pr_commits_attributed_to_bernardus": 311,
+        "local_all_ref_authored_objects": 652,
+        "local_authored_commits_excluding_stash": 650,
+        "distinct_complete_commit_messages_excluding_stash": 348,
+        "local_remote_tracking_refs": 494,
+        "commit_date_min": "2026-06-17",
+        "commit_date_max_excluding_stash": "2026-11-09",
+        "notes": "Every authored PR fetched with all commit pages (largest 33, all below 100); all 311 remote PR authored commits present locally. Rebased/cherry-picked duplicates and merge objects are not separate accomplishments. All relevant identified aliases were bewe with Gmail and GitHub noreply addresses. Search and local-ref enumeration are exhaustive for these sources, not a guarantee of deleted unreachable history."
+      },
+      "candidates": [
+        {
+          "rank": 1,
+          "theme": "Payment recovery",
+          "prs": [
+            575,
+            584
+          ],
+          "status": "Both merged into staging, Oct 7 / Oct 14 2026; production rollout not verified",
+          "evidence": [
+            "Split invoice creation from provider handoff; retries reuse existing invoice instead of another top-up mutation",
+            "Authenticated gateway status selects purchase versus top-up screen",
+            "Shared Snap guard starts new sessions once; reloads wait for Continue Payment",
+            "Popup-blocked redirects retain a retry of the existing invoice, checkout and seller penalty flows retain local callbacks"
+          ],
+          "bullet": "Hardened Next.js payment flows with one-time Midtrans initiation and invoice recovery, letting customers resume interrupted top-ups without creating duplicate requests.",
+          "metrics": "No conversion or failure-rate uplift established; do not infer from regression test counts.",
+          "links": [
+            "https://github.com/kickavenue/fe-marketplace-next/pull/575",
+            "https://github.com/kickavenue/fe-marketplace-next/pull/584"
+          ]
+        },
+        {
+          "rank": 2,
+          "theme": "Application startup and navigation reliability",
+          "prs": [
+            632
+          ],
+          "status": "Merged into staging Nov 9 2026; production rollout not verified",
+          "evidence": [
+            "Independent pre-application observer detects unavailable or incompatible Next.js chunks",
+            "Preserves pending destination and query parameters",
+            "Session-level retry guard prevents automatic reload loops; manual retry retained",
+            "Node HTTP preloader preserves streaming/compression/cookies/cache validators and excludes API/RSC/static/vendor responses"
+          ],
+          "bullet": "Built automatic recovery for Next.js chunk-loading failures, preserving customers’ destination URLs and preventing repeated reload loops.",
+          "metrics": "PR documents 94 focused tests and eight production-build browser recovery/navigation scenarios; these are validation scope, not production outcomes.",
+          "links": [
+            "https://github.com/kickavenue/fe-marketplace-next/pull/632"
+          ]
+        },
+        {
+          "rank": 3,
+          "theme": "Withdrawal integrity and status recovery",
+          "prs": [
+            592
+          ],
+          "status": "Merged into staging Oct 15 2026; production rollout not verified",
+          "evidence": [
+            "Refreshable withdrawal state fetched by record ID, with user-scoped cache excluding password",
+            "Malformed create responses recover through transaction history without repeating withdrawal POST",
+            "Validates wallet source and integer amount/fee; rejects unsupported/inaccessible records instead of inferring result from URL",
+            "Preserves prior result with warning/retry during background failures"
+          ],
+          "bullet": "Made seller withdrawals recoverable after refreshes and malformed responses using account-scoped status reads, without resubmitting cash-outs.",
+          "metrics": "No financial loss avoided or support ticket reduction measured.",
+          "links": [
+            "https://github.com/kickavenue/fe-marketplace-next/pull/592"
+          ]
+        },
+        {
+          "rank": 4,
+          "theme": "Sitemap automation and crawl correctness",
+          "prs": [
+            572,
+            426
+          ],
+          "status": "Merged into staging Oct 14 / Sep 1 2026; production rollout not verified",
+          "evidence": [
+            "Cursor-paginated collections sitemap replaces eight manual collection entries; 17 static product entries removed in favor of existing dynamic exports",
+            "Validates export completeness/cursor progress and fails rather than caching partial XML",
+            "Deduplicates URLs and excludes retired redirect-source collections",
+            "Variant metadata/JSON-LD update consistently with colourway navigation and restore last good identity on failure"
+          ],
+          "bullet": "Automated collection sitemaps from paginated APIs and synchronized product metadata across variants, replacing stale manual URLs with current catalog data.",
+          "metrics": "8 collection +17 product static entries removed are code scope, not SEO traffic lift; 50,000 limit is capacity only, not actual scale.",
+          "links": [
+            "https://github.com/kickavenue/fe-marketplace-next/pull/572",
+            "https://github.com/kickavenue/fe-marketplace-next/pull/426"
+          ]
+        },
+        {
+          "rank": 5,
+          "theme": "Server-side CPU isolation, reserve only",
+          "prs": [
+            557
+          ],
+          "status": "OPEN DRAFT, never present as shipped impact",
+          "evidence": [
+            "Moves expensive DOMPurify article sanitization to one Node worker per process",
+            "Bounded queue of16 pending articles /8M HTML chars and30s watchdog",
+            "Omits raw article HTML from client props",
+            "PR explicitly pending Linux concurrent large article memory validation under768MiB production limit"
+          ],
+          "bullet": "Implemented Node.js worker-thread isolation for large-article sanitization, with bounded queues and timeouts to protect unrelated requests.",
+          "metrics": "No recorded before/after benchmark result found in PR body/comments; pre-change pod memory330–384MiB is context, not improvement.",
+          "links": [
+            "https://github.com/kickavenue/fe-marketplace-next/pull/557"
+          ]
+        }
+      ],
+      "recommendation": "For a backend/full-stack one-page CV retain measured search and transaction correctness early. The payment-recovery or Next.js reliability accomplishments are stronger demonstrated alternatives to the Go proposal. Use one additional bullet only if replacing weaker content; payment and withdrawal recovery may be combined. Keep existing cross-stack review and affiliate ownership where truthful; affiliate Next.js PRs remain open, so built/implemented is defensible while launched/live adoption is not established."
+    },
+    "flutter": {
+      "coverage": {
+        "repository": "kickavenue/fe-marketplace-flutter",
+        "author": "bernarduswillson",
+        "github_indexed_commits": 75,
+        "github_search_incomplete": false,
+        "authored_prs": 82,
+        "pr_states": {
+          "OPEN": 10,
+          "MERGED": 67,
+          "CLOSED": 5
+        },
+        "pr_commit_pages_complete": true,
+        "unique_authored_commits_in_all_authored_prs": 402,
+        "local_all_refs_authored_commits": 980,
+        "local_unique_full_messages": 514,
+        "local_stash_checkpoint_objects": 134,
+        "local_date_bounds": [
+          "2026-04-16T16:43:42+07:00",
+          "2026-11-11T16:40:56+07:00"
+        ],
+        "pr_authored_commit_date_bounds": [
+          "2026-04-16T09:43:42Z",
+          "2026-11-11T09:40:56Z"
+        ],
+        "limitations": [
+          "Local all-ref counts include rebases, duplicates, stash/checkpoint commits and unmerged branches; not an accomplishment metric.",
+          "Indexed GitHub commit search alone omits branch commits; all 82 authored PRs and all of their commit pages additionally enumerated.",
+          "No tests, runtime profiling, production database queries, source edits, commits or pushes performed in this subtask.",
+          "Merged PRs are implementation evidence, not independently verified production rollout or measured business outcomes."
+        ]
+      },
+      "candidates": [
+        {
+          "rank": 1,
+          "topic": "DANA payment integration",
+          "prs": [
+            432
+          ],
+          "status": "MERGED",
+          "authorship": "bernarduswillson authored PR and change commits",
+          "wording": "Integrated DANA payments into Flutter checkout and offers, handling wallet redirects and verifying payment outcomes through the API.",
+          "verified": [
+            "DANA catalogue entry and API contracts cover Buy Now and Make Offer.",
+            "DANA custom scheme/hosts trigger external wallet handoff.",
+            "Main-frame merchant callbacks without a status code exit the WebView for API confirmation.",
+            "PR describes sandbox callback capture and native Payment Received result."
+          ],
+          "quantification": "98 focused tests reported in PR, not an outcome metric; no conversion/payment-success uplift measured.",
+          "value": "Best net-new mobile/full-stack bullet; meaningful payment correctness and real external integration.",
+          "next_measurement": "DANA payment volume and callback/payment failure rate by release, using carefully scoped pre/post cohorts; sandbox success does not establish production uplift.",
+          "links": [
+            "https://github.com/kickavenue/fe-marketplace-flutter/pull/432"
+          ]
+        },
+        {
+          "rank": 2,
+          "topic": "Filter rendering performance",
+          "prs": [
+            139
+          ],
+          "status": "MERGED",
+          "authorship": "bernarduswillson authored PR and both source commits",
+          "wording": "Optimized Flutter search filters with lazy rendering and targeted Riverpod subscriptions, eliminating full-catalog rebuilds during filter interactions.",
+          "verified": [
+            "ListView.builder replaces eager brand rows.",
+            "SliverList.builder renders size groups lazily.",
+            "ValueNotifiers and narrow provider selections isolate unrelated rebuilds.",
+            "Category switching computes saved state before emitting once; regression test asserts one emission."
+          ],
+          "quantification": "PR describes 3+ intermediate initialization emissions reduced to one; no FPS/frame-time/memory benchmark.",
+          "value": "Strong engineering depth, but less relevant than backend reliability/search bullets for the target role.",
+          "next_measurement": "Profile same dataset/device/build before and after for p95 UI frame time and jank ratio; avoid invented FPS or percentage improvements.",
+          "links": [
+            "https://github.com/kickavenue/fe-marketplace-flutter/pull/139"
+          ]
+        },
+        {
+          "rank": 3,
+          "topic": "Consistent size-scoped product pricing",
+          "prs": [
+            312,
+            217,
+            208
+          ],
+          "status": "MERGED",
+          "authorship": "bernarduswillson authored these PRs",
+          "wording": "Aligned Flutter search and product-detail pricing by preserving size filters and using backend-calculated prices across navigation and refreshes.",
+          "verified": [
+            "Positive distinct size IDs carried in routing and sent as size_ids to sells endpoint.",
+            "Header prices use backend start_from_price and backend discount when size-filtered.",
+            "Invalid/zero scoped prices are hidden rather than substituted.",
+            "PDP filter scope retained on refresh and cleared on variant changes."
+          ],
+          "quantification": "No measurable price-mismatch decline or conversion uplift found.",
+          "value": "Useful cross-stack contract consistency; may strengthen an existing search accomplishment instead of adding a new bullet.",
+          "links": [
+            "https://github.com/kickavenue/fe-marketplace-flutter/pull/312",
+            "https://github.com/kickavenue/fe-marketplace-flutter/pull/217",
+            "https://github.com/kickavenue/fe-marketplace-flutter/pull/208"
+          ]
+        },
+        {
+          "rank": 4,
+          "topic": "Co-viewed product recommendations",
+          "prs": [
+            128
+          ],
+          "status": "MERGED",
+          "authorship": "bernarduswillson authored PR; app consumption only, not recommendation algorithm",
+          "wording": "Added co-viewed product recommendations to Flutter product pages with click attribution and stale-response protection.",
+          "verified": [
+            "Consumes products/{id}/also-viewed without blocking initial PDP loading.",
+            "Request sequence and product-ID guard discard stale results.",
+            "Product taps propagate also_viewed_click and source_page attribution."
+          ],
+          "quantification": "Displays up to 10 products: UI cap, not business impact; no CTR or conversion evidence collected.",
+          "value": "Potential metric discovery candidate because click attribution exists; weaker bullet until outcome is measured.",
+          "next_measurement": "Read existing also_viewed_click activity / GA4 source_page=also_viewed for distinct users, subsequent purchase rate, and click share. CTR needs valid impression denominator; do not infer from clicks alone.",
+          "links": [
+            "https://github.com/kickavenue/fe-marketplace-flutter/pull/128"
+          ]
+        },
+        {
+          "rank": 5,
+          "topic": "Consignment crash prevention",
+          "prs": [
+            459
+          ],
+          "status": "MERGED",
+          "authorship": "bernarduswillson authored PR",
+          "wording": "Fixed a Flutter consignment crash by handling failed timeline requests and preserving error details for recovery.",
+          "verified": [
+            "Unsafe cast to Success<TransactionTimelineResponse> replaced with typed success/failure handling.",
+            "Regression tests cover timeline failure, collection failure, simultaneous failure and original stack trace preservation."
+          ],
+          "quantification": "35 mapper tests reported in PR; no observed crash reduction or affected-user count.",
+          "value": "Clear correctness fix, but too narrow to displace larger backend achievements without production crash evidence.",
+          "links": [
+            "https://github.com/kickavenue/fe-marketplace-flutter/pull/459"
+          ]
+        }
+      ],
+      "recommendation": "Keep backend/full-stack strengths first. Consider DANA as replacement for a weaker proposal-only bullet when breadth matters; do not add all five to a one-page CV. OpenSearch, transaction safety, and shipped cross-stack work outrank small UI fixes. Affiliate PRs are open, so avoid launched/production outcome wording.",
+      "excluded": [
+        "Android R8 optimization was not found among authored PRs/commits; do not claim it.",
+        "QRIS PR98 includes Maria and Dian work from other commits. Bernardus scope is QRIS Kick Credit top-up, not the whole OVO/QRIS checkout rollout.",
+        "Dynamic search facets PR109 is closed without merge, so do not present it as shipped.",
+        "Open affiliate stack (PR473,478,488,490,494,500,517) is already represented in CV; no new production impact asserted."
+      ]
+    }
+  },
+  "included_new_accomplishments": [
+    "seller_listing_latency",
+    "ci_cd_migration_and_coverage",
+    "dana_payment_integration",
+    "nextjs_payment_recovery",
+    "consignment_reporting",
+    "ci_runner_recovery"
+  ],
+  "seller_listing_followup": {
+    "as_of": "2026-11-11",
+    "conclusion": "No later merged, user-authored improvement with a comparable new seller-list benchmark was located. A lower intact paired benchmark exists in Bernardus's July30 Jira comment for the same original ticket:17.0848s→2.520s. A separate closed/unmerged PDP cache PR has a6.10ms warm-cache p95, which cannot be combined with seller-list latency.",
+    "sources_examined": [
+      "All285 authored PRs, including open and closed",
+      "All collected authored commit messages and local branches",
+      "All-author history of UserController, UserSellTrait and UserSell",
+      "GitHub PR search for endpoint, selling-list, seller latency, selling optimize and KB-5391",
+      "PR675 body and issue comments",
+      "Jira KB-5375 description, comments and links",
+      "PR678 and current code/cache tags",
+      "Open PR1157 and1161"
+    ],
+    "same_endpoint_measurements": [
+      {
+        "source": "https://github.com/kickavenue/be-api-laravel/pull/675",
+        "scope": "218k-result seller; per_page16; cold request from development machine against read-only production DB",
+        "before_s": 17.27,
+        "after_s": 3.07,
+        "limits": "Includes remote network latency; not production p95."
+      },
+      {
+        "source": "https://bintang5.atlassian.net/browse/KB-5375?focusedCommentId=48995",
+        "author": "Bernardus Willson",
+        "created": "2026-07-30T16:46:52.139+0700",
+        "updated": "2026-07-30T16:47:31.012+0700",
+        "endpoint": "GET /users/selling/sells",
+        "parameters": "page=1&per_page=16",
+        "catalog_listings": 218729,
+        "cache": "Cold application path; x-from-cache=false",
+        "original_values": "Old17.084,8ms; New2.520ms (Indonesian number formatting)",
+        "before_s": 17.0848,
+        "after_s": 2.52,
+        "reduction_percent": 85.25004682524818,
+        "limits": [
+          "One recorded before/after comparison, no sample count or percentile given.",
+          "Same original ticket, before August4 merge; not evidence of a later PR.",
+          "Client/run commands, exact code revisions and raw samples absent from this comment.",
+          "Do not combine17.27s from PR with2.52s from Jira.",
+          "QA comment marks under2s p95 passed using2.52s and small-catalog samples; this conclusion is not justified."
+        ]
+      },
+      {
+        "source": "https://github.com/kickavenue/be-api-laravel/pull/675",
+        "scope": "Review-fix A/B; independent219k-result seller,per_page16",
+        "before_s": 1.864,
+        "after_s": 1.952,
+        "interpretation": "Within DB/network variance, not a demonstrated speedup"
+      },
+      {
+        "source": "https://github.com/kickavenue/be-api-laravel/pull/675",
+        "scope": "Review-fix A/B;218k-result seller,per_page100",
+        "before_s": 2.538,
+        "after_s": 2.776,
+        "interpretation": "Within DB/network variance, not comparable to initial16-row benchmark"
+      },
+      {
+        "source": "https://github.com/kickavenue/be-api-laravel/pull/675",
+        "scope": "Out-of-range page, after aggregate guard but before offset short circuit versus after",
+        "before_s": 5.873,
+        "after_s": 1.727,
+        "interpretation": "Different workload; cannot use as replacement final latency for a normal populated first page"
+      },
+      {
+        "source": "https://github.com/kickavenue/be-api-laravel/pull/675",
+        "scope": "Extreme status=active case",
+        "before_review_fix_s": 11.54,
+        "after_review_fix_s": 11.76,
+        "interpretation": "No later measured fix located; do not claim status-filter SLO achieved"
+      }
+    ],
+    "followups": [
+      {
+        "number": 678,
+        "url": "https://github.com/kickavenue/be-api-laravel/pull/678",
+        "ticket": "KB-5391",
+        "author": "bernarduswillson",
+        "created": "2026-07-28T04:50:03Z",
+        "closed": "2026-07-30T10:26:58Z",
+        "state": "CLOSED",
+        "mergedAt": null,
+        "commit": "f9c1105e9fffb9a1549900a39b8c13eb4f21633a",
+        "main_ancestry": "diverged,ahead1,behind350",
+        "scope": "ProductController::showSellsV2 public product-detail listing endpoint; NOT /users/selling/sells",
+        "benchmark": "Two isolated Podman containers; PHP8.4.23; same read-only production DB; separate Redis namespaces; identical sequential runners; product variant3743; nearest-rank p95",
+        "unrelated_mp_rotation_20_requests": {
+          "old_p95_ms": 474.65,
+          "new_p95_ms": 6.1,
+          "old_path": "20/20 DB rebuilds",
+          "new_path": "20/20 cache hits"
+        },
+        "active_dependency_rotation_20_requests": {
+          "old_p95_ms": 474.65,
+          "new_p95_ms": 475.19
+        },
+        "warm_cache_50_requests": {
+          "old_p95_ms": 10.1,
+          "new_p95_ms": 8.6
+        },
+        "caution": "98.7% reduction measures retaining valid cached responses during unrelated invalidation, not faster cold SQL. No merge/deployment established. Current checked code still uses global mp cache tag. KB-5391 Jira issue itself returned not found."
+      },
+      {
+        "number": 1157,
+        "url": "https://github.com/kickavenue/be-api-laravel/pull/1157",
+        "state": "OPEN",
+        "commit": "abf0cf43bcd4ef1cad4fc7817b422e0e02145cc3",
+        "authored": "2026-11-09T18:30:26+07:00",
+        "change": "Limit unfiltered Standard Plus role lookups to current page; retain full-group role lookup when status filter requires it.",
+        "benchmark": null,
+        "caution": "Improves scope of newly added work in this unmerged feature; no measured later production latency."
+      },
+      {
+        "number": 1161,
+        "url": "https://github.com/kickavenue/be-api-laravel/pull/1161",
+        "state": "OPEN",
+        "change": "Exclude historical/cancelled order IDs from active listing invoice searches.",
+        "benchmark": null,
+        "caution": "Correctness change, not a quantified latency result."
+      }
+    ],
+    "other_author_followups": "PR716 seller_status,761 shipping-method read responses,982 Expiring Soon sort,1029 status validation and1040 summary counts surfaced. All-author file history and searches located no additional comparable seller-list performance benchmark attributable to Bernardus.",
+    "recommendation": {
+      "conservative": "Keep17.3s→3.1s because its client/data methodology is more explicitly documented.",
+      "alternate_verified_pair": "Reduced Laravel seller-list response time from17.1s to2.5s in a documented cold-request benchmark for a218,729-listing seller using batched queries and SQL aggregation.",
+      "do_not_claim": [
+        "17.3s→6ms",
+        "17.3s→1.7s",
+        "p95 below2s",
+        "later production improvement from unmerged1157",
+        "deployed98.7% PDP gain from closed678"
+      ]
+    }
+  },
+  "seller_listing_metric_decision": "Keep PR #675 pair17.27s→3.07s (rounded17.3s→3.1s) because its benchmark methodology is better documented. Jira pair17.0848s→2.520s is separate; #678 concerns another endpoint and was unmerged; open #1157 has no benchmark."
+}

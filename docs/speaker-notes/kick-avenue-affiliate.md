@@ -1,4 +1,4 @@
-# Kick Avenue - Point 2: Affiliate program
+# Kick Avenue: Affiliate program
 
 **Keynote:** I owned end-to-end development of the affiliate program across backend, web, and mobile. The implementation covers referral attribution, commission tracking and reconciliation, and affiliate performance dashboards. Backend work includes preserving attribution across signup and checkout, checking payment and order status before commission approval, and protecting commission credits with atomic balance and journal writes plus retry recovery. Release was pending as of October 28, 2026. This point demonstrates implementation scope and engineering ownership, with business impact awaiting post-release measurement.
 
