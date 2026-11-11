@@ -7,13 +7,8 @@
       \resumeItemListStart
         \resumeItem{Optimized OpenSearch size matching and facet fallbacks, reducing a multi-size query from 10.2 s to 1.1 s in production benchmarks; supported an estimated 350,000 search requests/day.}
         \resumeItem{Reduced Laravel seller-list response time from 17.3 s to 3.1 s in a cold-request benchmark against production data using batched queries and SQL aggregation.}
-        \resumeItem{Hardened Laravel/MariaDB checkout with transactional locking to prevent overselling and lost inventory updates; routed 48 stock-conflict Midtrans payments to refunds in the first month after release.}
-        \resumeItem{Added Kubernetes migration gates and enforced 80\% test coverage of changed executable lines in CI/CD, blocking deployments on migration failures.}
-        \resumeItem{Integrated DANA payments through Midtrans across Laravel and Flutter checkout and offers, handling wallet redirects, payment verification, and ambiguous-payment recovery.}
+        \resumeItem{Hardened checkout with database transactions and row-level locking to prevent overselling and lost inventory updates; routed 48 stock-conflict Midtrans payments to refunds in the first month after release.}
         \resumeItem{Delivered customer reviews, ratings, and photo uploads using Laravel, Next.js, and Flutter; observed a 13.5\% seven-day first-purchase rate among tracked mobile review viewers with no prior purchases.}
-        \resumeItem{Made Next.js top-ups recoverable after payment interruptions with one-time Midtrans initiation and invoice recovery to prevent duplicate payment requests.}
-        \resumeItem{Rebuilt consignment exports with streamed XLSX generation, private download links, and RabbitMQ redelivery safeguards to avoid loading full reports into memory and repeating failed work.}
-        \resumeItem{Recovered 81 GiB on shared CI runners by removing 380 abandoned Docker volumes; automated cleanup to prevent disk exhaustion.}
         \resumeItem{Built an affiliate program across backend, web, and mobile with referral attribution, performance dashboards, atomic commission processing, and failure recovery.}
         \resumeItem{Built browsing reminders and fixed duplicate and missed push notifications using atomic claims and failure recovery; 25\% of users in the measured reminder cohort returned to product browsing within 24 hours.}
         \resumeItem{Proposed a phased Laravel-to-Go migration to a modular monolith using the Strangler Fig pattern, with shadow validation, canary releases, single-writer ownership, and rollback safeguards.}
@@ -30,12 +25,6 @@
         \resumeItem{Automated candidate sourcing from Glints, Jobstreet, and KitaLulus, WhatsApp outreach via WATI, and AI scoring of Hireflix interviews using n8n.}
       \resumeItemListEnd
 
-  \resumeSubHeadingListEnd
-
-% Keep earlier roles together on the second page of the expanded CV.
-\newpage
-\section{Experience (continued)}
-  \resumeSubHeadingListStart
     \resumeSubheading
       {Web3 Developer (Freelance)}{Jan 2025 -- Jun 2025}
       {Self-Employed}{(Remote)}
